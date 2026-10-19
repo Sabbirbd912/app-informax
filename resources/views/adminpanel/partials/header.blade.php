@@ -98,7 +98,7 @@
                     @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
                     aria-haspopup="true">
                     <img class="object-cover w-8 h-8 rounded-full"
-                        src="{{ asset('adminpanel_assets/img/profile/Mehedee.jpg') }}"
+                        src="{{ asset('adminpanel_assets/img/profile/FS_Photo.png') }}"
                         alt="" aria-hidden="true" />
                 </button>
                 <template x-if="isProfileMenuOpen">

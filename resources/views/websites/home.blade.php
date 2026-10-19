@@ -30,7 +30,7 @@
                     </p>
                     <button id="cta-button"
                         class="px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 hover:scale-105 shadow-xl"
-                        aria-label="Get Started with Informax Technology">
+                        aria-label="Get Started with SoftPolli">
                         Get Started
                     </button>
                 </div>
@@ -77,19 +77,23 @@
         <section id="contact" class="section-padding px-4">
             <div class="max-w-6xl mx-auto">
                 <!-- Section Title -->
-                @include('websites.partial.contactInfo')
+                @if ($contactSection)
+                    @include('websites.partial.contactInfo')
+                @endif
 
                 <!-- Contact Info -->
                 <div class="mt-16 grid md:grid-cols-3 gap-6 text-center">
-                    <address
-                        class="p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-white border border-emerald-200 shadow-md not-italic">
-                        <p class="font-bold text-gray-800">Email</p>
-                        <p class="text-sm mt-2 text-gray-600">
-                            <a href="mailto:info@informax-bd.com" class="hover:text-emerald-600">
-                                {{ setting('contact_email') }}
-                            </a>
-                        </p>
-                    </address>
+                    @if (setting('contact_email'))
+                        <address
+                            class="p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-white border border-emerald-200 shadow-md not-italic">
+                            <p class="font-bold text-gray-800">Email</p>
+                            <p class="text-sm mt-2 text-gray-600">
+                                <a href="mailto:{{ setting('contact_email') }}" class="hover:text-emerald-600">
+                                    {{ setting('contact_email') }}
+                                </a>
+                            </p>
+                        </address>
+                    @endif
 
                     <address
                         class="p-6 rounded-2xl bg-gradient-to-br from-teal-50 to-white border border-teal-200 shadow-md not-italic">

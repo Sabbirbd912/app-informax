@@ -163,11 +163,11 @@
 
         <div class="flex-1 w-full min-h-[380px] rounded-lg overflow-hidden border border-gray-200">
             {{-- <iframe class="w-full h-full"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1535.3886107263486!2d90.36543992390268!3d23.754862631991994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bfda4a38ae89%3A0xa9abd9bf2ec382f5!2sInformax%20Technology%20Limited!5e0!3m2!1sen!2sbd!4v1765620914657!5m2!1sen!2sbd"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1535.3886107263486!2d90.36543992390268!3d23.754862631991994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bfda4a38ae89%3A0xa9abd9bf2ec382f5!2sSoftPolli!5e0!3m2!1sen!2sbd!4v1765620914657!5m2!1sen!2sbd"
                 loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
             </iframe> --}}
 
-            <iframe class="w-full h-full" src="{{ $contactSection->map_embed_url }}" loading="lazy" allowfullscreen>
+                <iframe class="w-full h-full" src="{{ $contactSection->map_embed_url ?? '' }}" loading="lazy" allowfullscreen>
             </iframe>
 
         </div>
@@ -177,7 +177,7 @@
         </h4> --}}
 
         <h4 class="text-orange-300 text-center text-3xl font-extrabold mt-4">
-            {{ $contactSection->map_title }}
+            {{ $contactSection->map_title ?? '' }}
         </h4>
     </div>
 </div>

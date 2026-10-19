@@ -78,7 +78,7 @@
                                         @if($setting->value)
                                             <div class="flex-shrink-0">
                                                 <img src="{{ asset('storage/' . $setting->value) }}" alt="Logo Preview"
-                                                    class="h-12 w-12 object-contain rounded border bg-gray-50 p-1 shadow-sm">
+                                                    class="h-12 max-w-xs w-auto object-contain rounded border bg-gray-50 p-1 shadow-sm">
                                             </div>
                                         @endif
                                         <div class="flex-1">

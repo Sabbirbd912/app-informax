@@ -17,5 +17,5 @@ function setting_image($key)
 
     return $value
         ? asset('storage/' . $value)
-        : asset('websites_assets/images/In-Logo.png');
+        : asset('websites_assets/images/SoftPolli-logo-offset.png');
 }

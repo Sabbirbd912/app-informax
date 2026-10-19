@@ -10,7 +10,7 @@
                     Empowering Global Businesses
                 </h3>
                 <p class="text-lg text-gray-600 leading-loose mb-8" style="text-align: justify;">
-                    Informax Technology Limited is a domain‑focused software company specializing in Financial
+                    SoftPolli is a domain‑focused software company specializing in Financial
                     Industry platforms (Insurance, Leasing, Bank, etc.) and Public/Private‑sector enterprise
                     business process automation with bespoke solutions. Since 2020, we have helped insurers,
                     banks, and enterprises modernize operations, unlock regulatory integrations, and launch
@@ -34,7 +34,7 @@
             <div class="w-full md:w-1/2">
                 <div class="rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
                     <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1000"
-                        alt="Informax Team Workspace" class="w-full h-[450px] object-cover" />
+                        alt="SoftPolli Team Workspace" class="w-full h-[450px] object-cover" />
                 </div>
             </div>
         </div>

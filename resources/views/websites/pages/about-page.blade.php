@@ -44,7 +44,7 @@
 
 
 {{-- <h2 id="about-title" class="text-4xl font-bold text-center mb-12">
-    About Informax Technology
+    About SoftPolli
 </h2>
 <div class="grid md:grid-cols-2 gap-12 mb-16">
     <article class="card-hover p-8 rounded-xl bg-white">

@@ -1,59 +1,123 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SoftPolli Website
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A company website and admin content-management panel built with Laravel. The public site presents company information, services, products, clients, testimonials, and contact details. Authorized administrators can manage website content and review contact messages.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Public home, about, and contact pages
+- Admin-only dashboard and content management
+- Manage sliders, company settings, about content, technologies, products, services, clients, membership cards, testimonials, navigation, and social links
+- Review contact submissions and send replies
+- Login and password reset flows
+- Contact form request throttling
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Technology Stack
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP 8.2 or later
+- Laravel 12
+- SQLite by default (can be configured for another Laravel-supported database)
+- Node.js and npm, with Vite and Tailwind CSS for frontend assets
+- Laravel Breeze authentication and CAPTCHA integration
 
-## Learning Laravel
+## Requirements
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- PHP 8.2+ and Composer
+- Node.js version supported by Vite 7 and npm
+- A database supported by Laravel
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Enable the PHP extensions required by Laravel and the database driver you choose.
 
-## Laravel Sponsors
+## Local Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. Clone the repository and enter the project directory.
 
-### Premium Partners
+   ```sh
+   git clone <repository-url>
+   cd <cloned-repository-folder>
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+2. Install PHP dependencies and create your local environment file.
 
-## Contributing
+   ```sh
+   composer install
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   On Windows Command Prompt, use `copy .env.example .env` instead of `cp`.
 
-## Code of Conduct
+3. Configure the database in `.env`. The example configuration uses SQLite. Create the SQLite file before running migrations if it does not already exist:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   ```sh
+   php -r "file_exists('database/database.sqlite') || touch('database/database.sqlite');"
+   ```
 
-## Security Vulnerabilities
+   For MySQL or another supported database, set the appropriate `DB_*` values in `.env` instead.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. Run database migrations and seed initial content.
+
+   Before seeding, set `ADMIN_NAME`, `ADMIN_EMAIL`, and a unique `ADMIN_PASSWORD` in your local `.env` file. The admin seeder intentionally has no default password and stops with an error if these credentials are missing. Do not commit your `.env` file or share its credentials.
+
+   ```sh
+   php artisan migrate --seed
+   ```
+
+   The company logo and contact email are intentionally left unset in the seed defaults. Add the SoftPolli logo and current contact details through the admin settings before publishing the site.
+
+   This seeds the configured admin account and initial website content. The full `php artisan db:seed` command invokes `UserSeeder` along with the other seeders.
+
+5. Create Laravel's public upload link so uploaded logos and other media can be served:
+
+   ```sh
+   php artisan storage:link
+   ```
+
+6. Install and build frontend assets.
+
+   ```sh
+   npm install
+   npm run build
+   ```
+
+7. Start the local Laravel server.
+
+   ```sh
+   php artisan serve
+   ```
+
+   Open the URL printed by Artisan, usually `http://127.0.0.1:8000`. The admin login page is available at `/login`; after signing in, open `/admin/dashboard`.
+
+For frontend development with Vite hot reload, run `npm run dev` in a separate terminal instead of building assets.
+
+## Environment Configuration
+
+Important settings are configured through `.env`, including:
+
+- `APP_URL` and application environment/debug settings
+- `DB_CONNECTION` and database credentials
+- `ADMIN_NAME`, `ADMIN_EMAIL`, and `ADMIN_PASSWORD` for the admin seeder
+- `MAIL_*` settings for email delivery
+- reCAPTCHA keys if using the contact form's CAPTCHA integration
+
+Keep `.env` private. Do not commit real passwords, API keys, or other secrets to GitHub.
+
+## Tests
+
+Run the automated test suite with:
+
+```sh
+php artisan test
+```
+
+## Production Notes
+
+- Set `APP_ENV=production` and `APP_DEBUG=false`.
+- Use a production database and configure mail and CAPTCHA credentials as required.
+- Set a unique production admin email and password in the deployment environment before seeding; never use development credentials.
+- Build frontend assets with `npm run build` and deploy the generated `public/build` files.
+- Run `php artisan storage:link` on the server so public uploads are accessible.
+- Configure the web server document root to the Laravel `public` directory.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is distributed under the license specified in `composer.json` (MIT).

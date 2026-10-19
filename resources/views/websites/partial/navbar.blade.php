@@ -5,10 +5,9 @@
 
             {{-- Logo --}}
             <a href="#home" class="flex items-center space-x-3">
-                <img src="{{ Storage::url(setting('company_logo')) }}" class="w-10 h-10 rounded-md">
-                <span class="text-2xl font-bold text-white">
-                    {{ setting('company_name') }}
-                </span>
+                <img src="{{ setting_image('company_logo') }}" alt="SoftPolli logo"
+                    class="h-8 w-auto max-w-[150px] object-contain"
+                    onerror="this.onerror=null;this.src='{{ asset('websites_assets/images/SoftPolli-logo-offset.png') }}'">
             </a>
 
             {{-- Desktop Menu --}}

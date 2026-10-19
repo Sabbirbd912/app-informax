@@ -8,7 +8,7 @@
         <div
             class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-8 border border-gray-100 flex flex-col justify-between h-full">
             <p class="text-lg text-gray-700 italic mb-8">
-                "Informax Technology transformed our legacy systems into a modern, efficient platform.
+                "SoftPolli transformed our legacy systems into a modern, efficient platform.
                 Their
                 expertise in the financial industry is unparalleled."
             </p>
@@ -25,7 +25,7 @@
         <div
             class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-8 border border-gray-100 flex flex-col justify-between h-full">
             <p class="text-lg text-gray-700 italic mb-8">
-                "The automation solutions provided by Informax have significantly streamlined our
+                "The automation solutions provided by SoftPolli have significantly streamlined our
                 operations, leading to substantial cost savings and accuracy."
             </p>
             <div class="flex items-center mt-auto">
@@ -41,7 +41,7 @@
         <div
             class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-8 border border-gray-100 flex flex-col justify-between h-full">
             <p class="text-lg text-gray-700 italic mb-8">
-                "Working with Informax was an absolute pleasure. They delivered our complex insurance
+                "Working with SoftPolli was an absolute pleasure. They delivered our complex insurance
                 platform ahead of schedule and within budget."
             </p>
             <div class="flex items-center mt-auto">
@@ -58,6 +58,7 @@
 </div> --}}
 
 
+@if ($testimonialSection)
 <div class="max-w-7xl mx-auto">
 
     <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">
@@ -111,7 +112,5 @@
     {{-- Pagination dots --}}
     <div class="swiper-pagination mt-10"></div>
 </div>
-
-
-
 </div>
+@endif

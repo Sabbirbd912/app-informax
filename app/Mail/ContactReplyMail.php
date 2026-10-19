@@ -16,7 +16,7 @@ class ContactReplyMail extends Mailable
     public function build()
     {
         return $this
-            ->subject('Reply from Informax Technology')
+            ->subject('Reply from SoftPolli')
             ->view('adminpanel.emails.contact-reply');
     }
 }
